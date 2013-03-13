@@ -64,10 +64,11 @@ class Boy(GameElement):
 
 class DoorClosed(GameElement):
     IMAGE = "DoorClosed"
-    SOLID = False
-    if "OrangeGem" in player.inventory:
+    SOLID = True
+    def interact(self,player):
+        if "OrangeGem" in player.inventory:
             #if key in thing:
-            self.SOLID = False   
+               
             GAME_BOARD.draw_msg("Door is now opened.")
             dooropen = DoorOpen()
             GAME_BOARD.register(dooropen)
