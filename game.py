@@ -52,12 +52,6 @@ class Chest(GameElement):
             GAME_BOARD.register(boy)
             GAME_BOARD.set_el(6,5, boy)
 
-            # if player.inventory[item] == 'Key':
-            #     GAME_BOARD.draw_msg("OMGZ.")
-            #     IMAGE = "Cat"
-        # player.inventory.append(self)
-        # INTERACT PLACE HERE
-
 class Boy(GameElement):
     IMAGE = "Boy"
     SOLID = True
