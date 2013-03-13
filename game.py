@@ -51,6 +51,8 @@ class Chest(GameElement):
             boy = Boy()
             GAME_BOARD.register(boy)
             GAME_BOARD.set_el(6,5, boy)
+        else:
+            GAME_BOARD.draw_msg("You must find the right key to open the chest!")
 
 class Boy(GameElement):
     IMAGE = "Boy"
@@ -172,13 +174,15 @@ def keyboard_handler():
 
         if existing_el:
             existing_el.interact(PLAYER)
-        if next_x <= 0 or next_x >= 7:
+        if next_x <= 0 or next_x >= (GAME_WIDTH-1):
             GAME_BOARD.draw_msg("You have reached out bounds. Try again!")
-        elif next_y <= 0 or next_y >= 7:
+        elif next_y <= 0 or next_y >= (GAME_HEIGHT-1):
             GAME_BOARD.draw_msg("You have reached out bounds. Try again!")  
         elif existing_el is None or not existing_el.SOLID:
             GAME_BOARD.del_el(PLAYER.x, PLAYER.y)
             GAME_BOARD.set_el(next_x, next_y, PLAYER)
+
+
 
 
         
